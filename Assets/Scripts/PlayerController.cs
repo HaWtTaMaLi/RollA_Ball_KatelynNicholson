@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
 
+    public PauseMenu pauseMenu;
+    public GameObject PauseMenuUI;
+    private bool isPaused = false;
+
 
     void Start()
     {
@@ -23,6 +27,38 @@ public class PlayerController : MonoBehaviour
 
         winTextObject.SetActive(false);
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                ExitPause(); //if the application is paused then exit pause menu
+            }
+            else
+            {
+                Pause(); //if the application is not paused then pause it
+            }
+        }
+
+    }
+
+    public void Pause()
+    {
+        PauseMenuUI.SetActive(true);
+        Time.timeScale = 0;
+        isPaused = true;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void ExitPause()
+    {
+        PauseMenuUI.SetActive(false);
+        Time.timeScale = 1;
+        isPaused = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void OnMove(InputValue movementValue)
