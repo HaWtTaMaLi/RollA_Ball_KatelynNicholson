@@ -1,6 +1,8 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,13 +15,13 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
 
-    public PauseMenu pauseMenu;
-    public GameObject PauseMenuUI;
-    private bool isPaused = false;
-
-
     void Start()
     {
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+
         rb = GetComponent<Rigidbody>();
 
         count = 0;
@@ -27,38 +29,17 @@ public class PlayerController : MonoBehaviour
 
         winTextObject.SetActive(false);
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) //if the escape key is pressed then set active Pause Menu UI
         {
-            if (isPaused)
-            {
-                ExitPause(); //if the application is paused then exit pause menu
-            }
-            else
-            {
-                Pause(); //if the application is not paused then pause it
-            }
+            PauseMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0;
         }
-
-    }
-
-    public void Pause()
-    {
-        PauseMenuUI.SetActive(true);
-        Time.timeScale = 0;
-        isPaused = true;
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
-
-    public void ExitPause()
-    {
-        PauseMenuUI.SetActive(false);
-        Time.timeScale = 1;
-        isPaused = false;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     void OnMove(InputValue movementValue)
@@ -111,5 +92,46 @@ public class PlayerController : MonoBehaviour
             SetCountText();
 
         }
+    }
+
+    public GameObject PauseMenu;
+
+    public void PauseGame()
+    {
+        PauseMenu.SetActive(true);
+        Time.timeScale = 0;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void PauseEscape()
+    {
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
