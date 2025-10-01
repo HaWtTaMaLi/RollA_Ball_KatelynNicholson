@@ -243,10 +243,10 @@ MonoBehaviour:
   - {x: -1, y: 0, z: 0, w: -1}
   m_Colors: []
   m_UnwrapParameters:
-    m_HardAngle: 88
-    m_PackMargin: 20
-    m_AngleError: 8
-    m_AreaError: 15
+    m_HardAngle: 1
+    m_PackMargin: 1
+    m_AngleError: 1
+    m_AreaError: 1
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
