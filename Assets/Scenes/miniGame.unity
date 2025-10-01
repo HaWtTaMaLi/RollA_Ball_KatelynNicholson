@@ -76993,7 +76993,7 @@ MeshCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 1
@@ -83095,7 +83095,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -95039,7 +95039,7 @@ PrefabInstance:
       objectReference: {fileID: 2004682828}
     - target: {fileID: 739230063054404789, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_VersionIndex
-      value: 4788
+      value: 4800
       objectReference: {fileID: 0}
     - target: {fileID: 5117131024729748689, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -100537,7 +100537,7 @@ PrefabInstance:
       objectReference: {fileID: 310007998}
     - target: {fileID: 739230063054404789, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_VersionIndex
-      value: 4788
+      value: 4800
       objectReference: {fileID: 0}
     - target: {fileID: 5117131024729748689, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -101248,7 +101248,7 @@ GameObject:
   - component: {fileID: 588596877}
   m_Layer: 5
   m_Name: WinText
-  m_TagString: Untagged
+  m_TagString: HUD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102170,7 +102170,7 @@ PrefabInstance:
       objectReference: {fileID: 660425615}
     - target: {fileID: 739230063054404789, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_VersionIndex
-      value: 4788
+      value: 4800
       objectReference: {fileID: 0}
     - target: {fileID: 5117131024729748689, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -173062,7 +173062,7 @@ PrefabInstance:
       objectReference: {fileID: 532075433}
     - target: {fileID: 739230063054404789, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_VersionIndex
-      value: 4788
+      value: 4800
       objectReference: {fileID: 0}
     - target: {fileID: 5117131024729748689, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -185500,7 +185500,7 @@ PrefabInstance:
       objectReference: {fileID: 56004409}
     - target: {fileID: 739230063054404789, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_VersionIndex
-      value: 4788
+      value: 4800
       objectReference: {fileID: 0}
     - target: {fileID: 5117131024729748689, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -270229,7 +270229,7 @@ PrefabInstance:
       objectReference: {fileID: 9864351}
     - target: {fileID: 739230063054404789, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_VersionIndex
-      value: 4788
+      value: 4800
       objectReference: {fileID: 0}
     - target: {fileID: 5117131024729748689, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -357072,7 +357072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1939807896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357171,7 +357171,7 @@ PrefabInstance:
       objectReference: {fileID: 835897308}
     - target: {fileID: 739230063054404789, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_VersionIndex
-      value: 4788
+      value: 4800
       objectReference: {fileID: 0}
     - target: {fileID: 5117131024729748689, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -357326,7 +357326,7 @@ GameObject:
   - component: {fileID: 1972156423}
   m_Layer: 5
   m_Name: CountText
-  m_TagString: Untagged
+  m_TagString: HUD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358662,7 +358662,7 @@ PrefabInstance:
       objectReference: {fileID: 319602058}
     - target: {fileID: 739230063054404789, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_VersionIndex
-      value: 4788
+      value: 4800
       objectReference: {fileID: 0}
     - target: {fileID: 3034549970755822332, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_StaticShadowCaster
@@ -358724,6 +358724,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 319602058}
+    - target: {fileID: 7483673704819262160, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8050323390138725976, guid: 4d3db6fac816fb54eb78cf667357e03b, type: 3}
       propertyPath: m_Name
       value: PickUp
