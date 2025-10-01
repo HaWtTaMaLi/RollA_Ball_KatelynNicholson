@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7483673704819262160}
   - component: {fileID: 2035640492805475291}
   - component: {fileID: 660847435192441817}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PickUp
   m_TagString: PickUp
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &660847435192441817
 MonoBehaviour:
   m_ObjectHideFlags: 0
