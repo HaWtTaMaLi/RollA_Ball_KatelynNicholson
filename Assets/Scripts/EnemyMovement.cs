@@ -9,12 +9,6 @@ public class EnemyMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameObject[] pickups = GameObject.FindGameObjectsWithTag("PickUp");
-        foreach (GameObject pickup in pickups)
-        {
-            Physics.IgnoreCollision(GetComponent<Collider>(), pickup.GetComponent<Collider>());
-        }
-
         navMeshAgent = GetComponent<NavMeshAgent>();
 
     }
