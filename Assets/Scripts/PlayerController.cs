@@ -80,6 +80,11 @@ public class PlayerController : MonoBehaviour
             winTextObject.gameObject.SetActive(true);
             winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
         }
+
+        if (collision.gameObject.CompareTag("PickUp"))
+        {
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+        }
     }
 
     private void OnTriggerEnter(Collider other)
