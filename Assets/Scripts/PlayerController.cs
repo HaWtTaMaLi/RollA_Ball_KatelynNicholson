@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
 
+    public float maxHealth = 100;
+    public float currentHealth;
+    public HealthBar healthBar;
+
     void Start()
     {
 
@@ -28,6 +32,9 @@ public class PlayerController : MonoBehaviour
         SetCountText();
 
         winTextObject.SetActive(false);
+
+        currentHealth = maxHealth;
+        healthBar.UpdateHealthBar(maxHealth, currentHealth);
 
     }
 
