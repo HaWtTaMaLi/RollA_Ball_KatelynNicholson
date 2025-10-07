@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public float maxHealth = 100;
     public float currentHealth;
-    public HealthBar healthBar;
+    //public HealthBar healthBar;
 
     void Start()
     {
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         winTextObject.SetActive(false);
 
         currentHealth = maxHealth;
-        healthBar.UpdateHealthBar(maxHealth, currentHealth);
+        //healthBar.UpdateHealthBar(maxHealth, currentHealth);
 
     }
 
