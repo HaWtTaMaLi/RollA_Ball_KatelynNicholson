@@ -4,20 +4,22 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerController : MonoBehaviour
 {
+    //Body
     private Rigidbody rb;
     private int count;
     private float movementX;
     private float movementY;
-
     public float speed = 0;
+    //UI
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
-
+    //Health
     public float maxHealth = 100;
     public float currentHealth;
-    //public HealthBar healthBar;
+    [SerializeField] private HealthBar healthBar;
 
     void Start()
     {
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
         winTextObject.SetActive(false);
 
         currentHealth = maxHealth;
-        //healthBar.UpdateHealthBar(maxHealth, currentHealth);
+        healthBar.UpdateHealthBar(maxHealth, currentHealth);
 
     }
 
