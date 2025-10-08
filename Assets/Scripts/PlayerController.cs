@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0;
+
+            if (gameOver)
+            {
+                Input.GetKeyDown(KeyCode.Escape);
+                PauseMenu.SetActive(false);
+            }
         }
     }
 
@@ -98,6 +104,8 @@ public class PlayerController : MonoBehaviour
             {
                 Destroy(GameObject.FindGameObjectWithTag("Enemy"));
                 Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 gameOver.gameObject.SetActive(true);
             }
         }
@@ -129,6 +137,7 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
     }
 
     public void PauseEscape()
@@ -138,6 +147,7 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
     }
 
     public void Restart()
