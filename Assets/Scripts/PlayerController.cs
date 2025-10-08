@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
     public GameObject gameOver;
+    public GameObject GamePlayUI;
     //Health
     public float maxHealth = 100;
     public float currentHealth;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
         count = 0;
         SetCountText();
 
+        GamePlayUI.SetActive(true);
         gameOver.SetActive(false);
         winTextObject.SetActive(false);
         PauseMenu.SetActive(false);
@@ -47,7 +49,9 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) //if the escape key is pressed then set active Pause Menu UI
         {
-            PauseMenu.SetActive(true);
+
+            PauseGame();
+            
         }
     }
 
@@ -124,12 +128,13 @@ public class PlayerController : MonoBehaviour
 
     public void PauseGame()
     {
+        Debug.Log("Escape Key Pressed");
         PauseMenu.SetActive(true);
         Time.timeScale = 0;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
+        GamePlayUI.SetActive(false);
     }
 
     public void PauseEscape()
