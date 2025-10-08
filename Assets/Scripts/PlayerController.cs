@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
         gameOver.SetActive(false);
         winTextObject.SetActive(false);
+        PauseMenu.SetActive(false);
 
         currentHealth = maxHealth;
         healthBar.UpdateHealthBar(maxHealth, currentHealth);
@@ -47,15 +48,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) //if the escape key is pressed then set active Pause Menu UI
         {
             PauseMenu.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            Time.timeScale = 0;
-
-            if (gameOver)
-            {
-                Input.GetKeyDown(KeyCode.Escape);
-                PauseMenu.SetActive(false);
-            }
         }
     }
 
