@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     //Health
     public float maxHealth = 100;
     public float currentHealth;
-    [SerializeField] private HealthBar healthBar;
+    [SerializeField] public HealthBar healthBar;
 
     void Start()
     {
@@ -85,9 +85,19 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(GameObject.FindGameObjectWithTag("Enemy"));
-            winTextObject.gameObject.SetActive(true);
-            winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+            currentHealth -= 20;
+            healthBar.UpdateHealthBar(maxHealth, currentHealth);
+
+            Rigidbody rb = GetComponent<Rigidbody>();
+            Vector3 pushDirection = transform.position - collision.transform.position;
+            rb.AddForce(pushDirection.normalized * 500f);
+
+            if (currentHealth <= 0)
+            {
+                Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+                winTextObject.gameObject.SetActive(true);
+                winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+            }
         }
 
         if (collision.gameObject.CompareTag("PickUp"))

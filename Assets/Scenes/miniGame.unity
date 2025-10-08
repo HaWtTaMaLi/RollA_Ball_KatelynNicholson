@@ -16812,7 +16812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f0c02cb011b0749b68c6ce83aedc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarSprite: {fileID: 0}
+  healthBarSprite: {fileID: 1132365992}
 --- !u!43 &225894369
 Mesh:
   m_ObjectHideFlags: 0
@@ -344482,7 +344482,7 @@ MonoBehaviour:
   winTextObject: {fileID: 588596875}
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 222443196}
   PauseMenu: {fileID: 1516363469}
 --- !u!54 &1808385134
 Rigidbody:

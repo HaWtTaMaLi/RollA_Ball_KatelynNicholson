@@ -8,7 +8,7 @@ using System;
 public class HealthBar : MonoBehaviour
 {
 
-    [SerializeField] private Image healthBarSprite;
+    [SerializeField] public Image healthBarSprite;
 
     public void UpdateHealthBar(float maxHealth, float currentHealth)
     {
