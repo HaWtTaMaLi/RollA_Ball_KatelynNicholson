@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
     public GameObject gameOver;
-    public GameObject GamePlayUI;
     //Health
     public float maxHealth = 100;
     public float currentHealth;
@@ -66,8 +65,10 @@ public class PlayerController : MonoBehaviour
         if(count >= 8)
         {
             winTextObject.SetActive(true);
-
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
     }
