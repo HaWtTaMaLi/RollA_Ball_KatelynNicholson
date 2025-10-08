@@ -35,11 +35,6 @@ public class PlayerController : MonoBehaviour
         count = 0;
         SetCountText();
 
-        GamePlayUI.SetActive(true);
-        gameOver.SetActive(false);
-        winTextObject.SetActive(false);
-        PauseMenu.SetActive(false);
-
         currentHealth = maxHealth;
         healthBar.UpdateHealthBar(maxHealth, currentHealth);
 
@@ -134,7 +129,6 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        GamePlayUI.SetActive(false);
     }
 
     public void PauseEscape()
