@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     //UI
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+    public GameObject gameOver;
     //Health
     public float maxHealth = 100;
     public float currentHealth;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         count = 0;
         SetCountText();
 
+        gameOver.SetActive(false);
         winTextObject.SetActive(false);
 
         currentHealth = maxHealth;
@@ -95,8 +97,8 @@ public class PlayerController : MonoBehaviour
             if (currentHealth <= 0)
             {
                 Destroy(GameObject.FindGameObjectWithTag("Enemy"));
-                winTextObject.gameObject.SetActive(true);
-                winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+                Time.timeScale = 0;
+                gameOver.gameObject.SetActive(true);
             }
         }
 
