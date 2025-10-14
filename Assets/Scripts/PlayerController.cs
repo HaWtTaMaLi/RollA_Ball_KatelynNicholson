@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth;
     [SerializeField] public HealthBar healthBar;
+    public AudioClip collisionSound;
 
     void Start()
     {
@@ -87,6 +88,7 @@ public class PlayerController : MonoBehaviour
         {
             currentHealth -= 20;
             healthBar.UpdateHealthBar(maxHealth, currentHealth);
+            AudioSource.PlayClipAtPoint(collisionSound, transform.position);
 
             Rigidbody rb = GetComponent<Rigidbody>();
             Vector3 pushDirection = transform.position - collision.transform.position;
