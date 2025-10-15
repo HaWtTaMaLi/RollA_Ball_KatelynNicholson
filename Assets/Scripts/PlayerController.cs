@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //pickup
         if (other.gameObject.CompareTag("PickUp"))
         {
             other.gameObject.SetActive(false);
@@ -125,10 +126,19 @@ public class PlayerController : MonoBehaviour
             SetCountText();
         }
 
+        //next level trigger
         if (other.CompareTag("NextTrigger"))
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadSceneAsync(currentSceneIndex + 1);
+        }
+
+        //falling out of world
+        if (other.CompareTag("Catcher"))
+        {
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadSceneAsync(currentScene);
+
         }
     }
 
