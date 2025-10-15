@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
     public GameObject gameOver;
+    public GameObject nextScene;
     //Health
     public float maxHealth = 100;
     public float currentHealth;
@@ -65,11 +66,15 @@ public class PlayerController : MonoBehaviour
 
         if(count >= 8)
         {
-            winTextObject.SetActive(true);
+            nextScene.SetActive(true);
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
-            Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Time.timeScale = 1;
         }
 
     }
@@ -118,7 +123,12 @@ public class PlayerController : MonoBehaviour
 
             count = count + 1;
             SetCountText();
+        }
 
+        if (other.CompareTag("NextTrigger"))
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentSceneIndex + 1);
         }
     }
 
@@ -126,7 +136,7 @@ public class PlayerController : MonoBehaviour
 
     public void PauseGame()
     {
-        Debug.Log("Escape Key Pressed");
+        //Debug.Log("Escape Key Pressed");
         PauseMenu.SetActive(true);
         Time.timeScale = 0;
 
