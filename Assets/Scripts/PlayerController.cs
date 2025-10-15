@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("NextTrigger"))
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(currentSceneIndex + 1);
+            SceneManager.LoadSceneAsync(currentSceneIndex + 1);
         }
     }
 
