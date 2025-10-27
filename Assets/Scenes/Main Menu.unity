@@ -293,8 +293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: -263.7}
-  m_SizeDelta: {x: 500, y: 150}
+  m_AnchoredPosition: {x: -937, y: -369}
+  m_SizeDelta: {x: 328.5145, y: 107.6272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &98633492
 MonoBehaviour:
@@ -474,7 +474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &105512238
 Transform:
   m_ObjectHideFlags: 0
@@ -36798,6 +36798,7 @@ GameObject:
   - component: {fileID: 952372752}
   - component: {fileID: 952372751}
   - component: {fileID: 952372750}
+  - component: {fileID: 952372756}
   m_Layer: 0
   m_Name: BackgroundMusic
   m_TagString: Untagged
@@ -37226,6 +37227,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &952372756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952372749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7e3f4344db51144a5969b5429b7329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundList:
+  - {fileID: 8300000, guid: 49fcf811fa64a47468e60bedc3f5a869, type: 3}
+  - {fileID: 8300000, guid: c37d0487d47ebc44ea7991a268315fd7, type: 3}
+  - {fileID: 8300000, guid: 970cc8a070ff8764e95394cb309b6e05, type: 3}
+  - {fileID: 8300000, guid: 4971182b58cc0a045a2aa36c88b9e2a3, type: 3}
+  - {fileID: 8300000, guid: d95446a87fc4b314f9bc3ff7719468d4, type: 3}
+  - {fileID: 8300000, guid: 5f6c741fa58e9634abf8f9b5e1c28d04, type: 3}
+  - {fileID: 8300000, guid: 5f6c741fa58e9634abf8f9b5e1c28d04, type: 3}
 --- !u!1 &1004140863
 GameObject:
   m_ObjectHideFlags: 0
@@ -37948,8 +37969,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 60}
-  m_SizeDelta: {x: 500, y: 150}
+  m_AnchoredPosition: {x: 456.97607, y: 215.89233}
+  m_SizeDelta: {x: 512.2709, y: 110.1196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1168670039
 MonoBehaviour:
@@ -38374,7 +38395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1264564246
 Transform:
   m_ObjectHideFlags: 0

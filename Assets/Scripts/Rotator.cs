@@ -15,7 +15,7 @@ public class Rotator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Play the sound at the pickup's position
-            AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+            SoundManager.PlaySound(SoundType.COLLECTED);
 
             // Destroy the pickup
             Destroy(gameObject);
