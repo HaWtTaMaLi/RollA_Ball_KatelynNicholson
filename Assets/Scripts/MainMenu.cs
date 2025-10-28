@@ -1,15 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class mainMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     public void PlayGame()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         SceneManager.LoadSceneAsync(1);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     public void Exit()

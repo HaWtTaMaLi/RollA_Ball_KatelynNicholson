@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     //UI
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+    public GameObject nextLevelObject;
     public GameObject gameOver;
     public GameObject nextScene;
     //Health
@@ -67,7 +68,9 @@ public class PlayerController : MonoBehaviour
         {
             nextScene.SetActive(true);
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
-            
+            nextLevelObject.SetActive(true);
+            winTextObject.SetActive(true);
+
         }
         else
         {
@@ -104,7 +107,7 @@ public class PlayerController : MonoBehaviour
                 Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                gameOver.gameObject.SetActive(true);
+                gameOver.SetActive(true);
             }
         }
 
@@ -120,7 +123,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("PickUp"))
         {
             other.gameObject.SetActive(false);
-
+            SoundManager.PlaySound(SoundType.COLLECTED);
             count = count + 1;
             SetCountText();
         }
@@ -171,16 +174,4 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void MainMenu()
-    {
-        SceneManager.LoadScene(0);
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
 }
