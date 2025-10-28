@@ -67,6 +67,8 @@ MonoBehaviour:
   AudioMixer: {fileID: 24100000, guid: d3cdb8b2b9e63b940855682e3555fd95, type: 2}
   musicSlider: {fileID: 0}
   sfxSlider: {fileID: 0}
+  savedMusic: 0
+  savedSFX: 0
 --- !u!114 &7964054657165702183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +144,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -627,7 +629,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
