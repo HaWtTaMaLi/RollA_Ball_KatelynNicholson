@@ -40,24 +40,28 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        //musicSlider.onValueChanged.AddListener(SetMusicVolume);
-        //sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
         //singleton setup
          if (instance == null)
         {
+
             instance = this;
 
             DontDestroyOnLoad(gameObject);
+
         }
+
         else
         {
+
             Destroy(gameObject);
+
         }
 
         //attach slider listeners
         if (musicSlider != null)
             musicSlider.onValueChanged.AddListener(SetMusicVolume);
+
         if (sfxSlider != null)
             sfxSlider.onValueChanged.AddListener(SetSFXVolume);
     }
