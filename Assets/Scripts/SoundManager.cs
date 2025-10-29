@@ -32,11 +32,11 @@ public class SoundManager : MonoBehaviour
     [SerializeField] public Slider musicSlider;
     [SerializeField] public Slider sfxSlider;
 
-    private const string MUSIC_KEY = "MusicVolume";
-    private const string SFX_KEY = "SFXVolume";
+    private const string MUSIC_KEY = "Music";
+    private const string SFX_KEY = "SFX";
 
-    public float savedMusic = PlayerPrefs.GetFloat(MUSIC_KEY, 0f);
-    public float savedSFX = PlayerPrefs.GetFloat(SFX_KEY, 0f);
+    public float savedMusic = PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
+    public float savedSFX = PlayerPrefs.GetFloat(SFX_KEY, 1f);
 
     private void Awake()
     {
@@ -44,18 +44,12 @@ public class SoundManager : MonoBehaviour
         //singleton setup
          if (instance == null)
         {
-
             instance = this;
-
             DontDestroyOnLoad(gameObject);
-
         }
-
         else
         {
-
             Destroy(gameObject);
-
         }
 
         //attach slider listeners
@@ -79,15 +73,17 @@ public class SoundManager : MonoBehaviour
 
     public void SetMusicVolume(float volume)
     {
-        AudioMixer.SetFloat("Music", volume);
+        AudioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat(MUSIC_KEY, volume);
+
     }
 
     public void SetSFXVolume(float volume)
     {
-        AudioMixer.SetFloat("SFX", volume);
+        AudioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat(SFX_KEY, volume);
     }
+
 
     public void PlayHover()
     {
