@@ -35,9 +35,6 @@ public class SoundManager : MonoBehaviour
     private const string MUSIC_KEY = "Music";
     private const string SFX_KEY = "SFX";
 
-    public float savedMusic = PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
-    public float savedSFX = PlayerPrefs.GetFloat(SFX_KEY, 1f);
-
     private void Awake()
     {
 
@@ -64,15 +61,30 @@ public class SoundManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        AudioMixer.SetFloat("Music", savedMusic);
-        AudioMixer.SetFloat("SFX", savedSFX);
+        //load saved volume or def to 1
+        float savedMusic = PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
+        float savedSFX = PlayerPrefs.GetFloat(SFX_KEY, 1f);
 
-        if (musicSlider != null) musicSlider.value = savedMusic;
-        if (sfxSlider != null) sfxSlider.value = savedSFX;
+        //clamp
+        savedMusic = Mathf.Max(savedMusic, 0, 0001f);
+        savedSFX = Mathf.Max(savedSFX, 0.0001f);
+
+        //apply to mixer
+        AudioMixer.SetFloat("Music", Mathf.Log10(savedMusic) * 20);
+        AudioMixer.SetFloat("SFX", Mathf.Log10(savedSFX) * 20);
+
+        //set slider
+        musicSlider.value = savedMusic;
+        sfxSlider.value = savedSFX;
+
+        //slider listener
+        musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
     }
 
     public void SetMusicVolume(float volume)
     {
+        volume = Mathf.Max(volume, 0.0001f);
         AudioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat(MUSIC_KEY, volume);
 
@@ -80,6 +92,7 @@ public class SoundManager : MonoBehaviour
 
     public void SetSFXVolume(float volume)
     {
+        volume = Mathf.Max(volume, 0.0001f);
         AudioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat(SFX_KEY, volume);
     }
