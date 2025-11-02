@@ -32,11 +32,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] public Slider musicSlider;
     [SerializeField] public Slider sfxSlider;
 
-    private const string MUSIC_KEY = "MusicVolume";
-    private const string SFX_KEY = "SFXVolume";
-
-    public float savedMusic = PlayerPrefs.GetFloat(MUSIC_KEY, 0f);
-    public float savedSFX = PlayerPrefs.GetFloat(SFX_KEY, 0f);
+    private const string MUSIC_KEY = "Music";
+    private const string SFX_KEY = "SFX";
 
     private void Awake()
     {
@@ -44,18 +41,12 @@ public class SoundManager : MonoBehaviour
         //singleton setup
          if (instance == null)
         {
-
             instance = this;
-
             DontDestroyOnLoad(gameObject);
-
         }
-
         else
         {
-
             Destroy(gameObject);
-
         }
 
         //attach slider listeners
@@ -70,24 +61,42 @@ public class SoundManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        AudioMixer.SetFloat("Music", savedMusic);
-        AudioMixer.SetFloat("SFX", savedSFX);
+        //load saved volume or def to 1
+        float savedMusic = PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
+        float savedSFX = PlayerPrefs.GetFloat(SFX_KEY, 1f);
 
-        if (musicSlider != null) musicSlider.value = savedMusic;
-        if (sfxSlider != null) sfxSlider.value = savedSFX;
+        //clamp
+        savedMusic = Mathf.Max(savedMusic, 0, 0001f);
+        savedSFX = Mathf.Max(savedSFX, 0.0001f);
+
+        //apply to mixer
+        AudioMixer.SetFloat("Music", Mathf.Log10(savedMusic) * 20);
+        AudioMixer.SetFloat("SFX", Mathf.Log10(savedSFX) * 20);
+
+        //set slider
+        musicSlider.value = savedMusic;
+        sfxSlider.value = savedSFX;
+
+        //slider listener
+        musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
     }
 
     public void SetMusicVolume(float volume)
     {
-        AudioMixer.SetFloat("Music", volume);
+        volume = Mathf.Max(volume, 0.0001f);
+        AudioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat(MUSIC_KEY, volume);
+
     }
 
     public void SetSFXVolume(float volume)
     {
-        AudioMixer.SetFloat("SFX", volume);
+        volume = Mathf.Max(volume, 0.0001f);
+        AudioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat(SFX_KEY, volume);
     }
+
 
     public void PlayHover()
     {
