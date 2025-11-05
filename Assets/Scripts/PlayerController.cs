@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     //UI
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
-    public GameObject nextLevelObject;
     public GameObject gameOver;
     public GameObject nextScene;
     //Health
