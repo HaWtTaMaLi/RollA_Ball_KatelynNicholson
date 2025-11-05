@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Score: " + count.ToString();
+        countText.text = "Score: " + count.ToString() + "/8";
 
         if(count >= 8)
         {
