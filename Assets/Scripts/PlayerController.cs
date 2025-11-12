@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player")]
     private int count;
+    public int targetScore = 8;
     public float speed = 5;
     public float maxHealth = 100;
     [SerializeField] public HealthBar healthBar;
@@ -61,9 +62,15 @@ public class PlayerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
+    void SetTargetScore(int newTarget)
+    {
+        targetScore = newTarget;
+        SetCountText();
+    }
+
     void SetCountText()
     {
-        countText.text = "Score: " + count.ToString() + "/8";
+        countText.text = "Score: " + count.ToString() + "/" + targetScore.ToString();
 
         if(count >= 8)
         {
@@ -80,12 +87,11 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 1;
             youWon = false;
         }
-
     }
+
 
     private void FixedUpdate()
     {
-        
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
         rb.AddForce(movement * speed);
@@ -152,10 +158,6 @@ public class PlayerController : MonoBehaviour
     {
         bool isPaused = !PauseMenu.activeSelf;
         PauseMenu.SetActive(isPaused);
-
-        //Debug.Log("Escape Key Pressed");
-        //PauseMenu.SetActive(true);
-        //Time.timeScale = 0;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
