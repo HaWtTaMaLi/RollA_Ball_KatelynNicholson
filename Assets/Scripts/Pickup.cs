@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public AudioClip pickupSound;   // Drag sound file here in Inspector
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            // Play the sound at the pickup's position
+            SoundManager.PlaySound(SoundType.COLLECTED);
+
+            // Destroy the pickup
+            Destroy(gameObject);
+        }
     }
 }

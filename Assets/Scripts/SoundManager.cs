@@ -97,7 +97,6 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat(SFX_KEY, volume);
     }
 
-
     public void PlayHover()
     {
         hoverSound.Play();

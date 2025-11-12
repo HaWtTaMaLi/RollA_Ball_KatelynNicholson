@@ -4906,7 +4906,7 @@ GameObject:
   - component: {fileID: 6496643117625793482}
   - component: {fileID: 7483673704819262160}
   - component: {fileID: 2035640492805475291}
-  - component: {fileID: 660847435192441817}
+  - component: {fileID: 1188107503764358184}
   m_Layer: 0
   m_Name: PickUp
   m_TagString: PickUp
@@ -5273,7 +5273,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &660847435192441817
+--- !u!114 &1188107503764358184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5282,7 +5282,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8050323390138725976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edf4e09d5e3104442abb1b9a4e077392, type: 3}
+  m_Script: {fileID: 11500000, guid: bca6691646ee982438a603810c7cc438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 8300000, guid: 5f6c741fa58e9634abf8f9b5e1c28d04, type: 3}

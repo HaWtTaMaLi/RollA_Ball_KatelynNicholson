@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,12 +12,14 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
     public float speed = 0;
+
     //UI
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
     public GameObject nextLevelObject;
     public GameObject gameOver;
     public GameObject nextScene;
+
     //Health
     public float maxHealth = 100;
     public float currentHealth;
@@ -38,16 +39,16 @@ public class PlayerController : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.UpdateHealthBar(maxHealth, currentHealth);
-
     }
 
     private void Update()
     {
+        // Keep spinning
+        transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
+
         if (Input.GetKeyDown(KeyCode.Escape)) //if the escape key is pressed then set active Pause Menu UI
         {
-
             PauseGame();
-            
         }
     }
 
@@ -57,7 +58,6 @@ public class PlayerController : MonoBehaviour
 
         movementX = movementVector.x;
         movementY = movementVector.y;
-
     }
 
     void SetCountText()
@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
             nextLevelObject.SetActive(true);
             winTextObject.SetActive(true);
-
         }
         else
         {
@@ -86,7 +85,6 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
         rb.AddForce(movement * speed);
-
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -140,7 +138,6 @@ public class PlayerController : MonoBehaviour
         {
             int currentScene = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadSceneAsync(currentScene);
-
         }
     }
 
@@ -163,7 +160,6 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
     }
 
     public void Restart()
