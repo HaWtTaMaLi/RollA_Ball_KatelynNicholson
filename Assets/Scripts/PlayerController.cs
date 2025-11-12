@@ -6,24 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    //Body
-    private Rigidbody rb;
-    private int count;
-    private float movementX;
-    private float movementY;
-    public float speed = 0;
 
-    //UI
+    [Header("Player")]
+    private int count;
+    public float speed = 5;
+    public float maxHealth = 100;
+    [SerializeField] public HealthBar healthBar;
+
+    [Header("Player UI")]
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
     public GameObject nextLevelObject;
     public GameObject gameOver;
     public GameObject nextScene;
 
-    //Health
-    public float maxHealth = 100;
+    private Rigidbody rb;
+    private float movementX;
+    private float movementY;
     public float currentHealth;
-    [SerializeField] public HealthBar healthBar;
+    
 
     void Start()
     {
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
         rb.AddForce(movement * speed);
@@ -97,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
             Rigidbody rb = GetComponent<Rigidbody>();
             Vector3 pushDirection = transform.position - collision.transform.position;
-            rb.AddForce(pushDirection.normalized * 500f);
+            rb.AddForce(pushDirection.normalized * 200f);
 
             if (currentHealth <= 0)
             {

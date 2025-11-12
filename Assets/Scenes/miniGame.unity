@@ -65936,12 +65936,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4653422198614067607}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalRotation: {x: 0.17364816, y: -0, z: -0, w: 0.9848078}
   m_LocalPosition: {x: 0, y: 4, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4040635983437370240}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!222 &684647076673564305
 CanvasRenderer:
@@ -69900,14 +69900,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  maxHealth: 100
+  healthBar: {fileID: 861988405340612960}
   countText: {fileID: 4658750516783503370}
   winTextObject: {fileID: 5880983316739813609}
   nextLevelObject: {fileID: 1697954260}
   gameOver: {fileID: 2588670969909568944}
   nextScene: {fileID: 149876437}
-  maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 861988405340612960}
   PauseMenu: {fileID: 2174636360190059393}
 --- !u!1 &2996395868206828469
 GameObject:
@@ -71092,7 +71092,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 646534061691504084}
   - {fileID: 6959806863193680803}
   - {fileID: 4655357797914610541}
   m_Father: {fileID: 0}
@@ -71950,7 +71949,7 @@ PrefabInstance:
     - target: {fileID: 2949201166270581414, guid: 6322554f9bb6ef14984c397934e41fa0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8383700804431396134}
     - target: {fileID: 3419522638720955666, guid: 6322554f9bb6ef14984c397934e41fa0, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -74803,7 +74802,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c762c3589c451764c9ec43d5c23cdab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 9192619199261458421}
+  playerBody: {fileID: 6959806863193680803}
+  orientation: {fileID: 8383700804431396134}
+  mainCamera: {fileID: 646534061691504084}
+  xRotation: 0
+  mouseSensitivity: 100
 --- !u!114 &8448479934199053133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75323,6 +75326,7 @@ SceneRoots:
   - {fileID: 29544362}
   - {fileID: 1332428562}
   - {fileID: 1619392565}
+  - {fileID: 646534061691504084}
   - {fileID: 1519259189}
   - {fileID: 4759484396578936862}
   - {fileID: 4040635983437370240}

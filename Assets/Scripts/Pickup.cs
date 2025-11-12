@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    [Header("PickUp Clip")]
     public AudioClip pickupSound;   // Drag sound file here in Inspector
 
     private void OnTriggerEnter(Collider other)

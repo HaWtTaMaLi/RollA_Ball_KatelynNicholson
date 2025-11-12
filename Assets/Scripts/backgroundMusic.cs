@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class backgroundMusic : MonoBehaviour
 {
+    [Header("BackGround Music")]
     public AudioSource Sound1;
     public AudioSource Sound2;
     public AudioSource Sound3;
