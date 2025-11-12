@@ -71,12 +71,14 @@ public class PlayerController : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
             nextLevelObject.SetActive(true);
             winTextObject.SetActive(true);
+            youWon = true;
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Time.timeScale = 1;
+            youWon = false;
         }
 
     }
@@ -144,15 +146,34 @@ public class PlayerController : MonoBehaviour
     }
 
     public GameObject PauseMenu;
+    public bool youWon = false;
 
     public void PauseGame()
     {
+        bool isPaused = !PauseMenu.activeSelf;
+        PauseMenu.SetActive(isPaused);
+
         //Debug.Log("Escape Key Pressed");
-        PauseMenu.SetActive(true);
-        Time.timeScale = 0;
+        //PauseMenu.SetActive(true);
+        //Time.timeScale = 0;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        if (isPaused)
+        {
+            Time.timeScale = 0f;
+            winTextObject.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            if (youWon)
+            {
+                winTextObject.SetActive(true);
+            }
+        }
+
     }
 
     public void PauseEscape()
