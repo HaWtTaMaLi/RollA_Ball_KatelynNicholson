@@ -3,7 +3,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("Player")]
-    //look with mouse
     public Transform playerBody;
 
     [Header("Camera Look at settings")]
@@ -12,10 +11,9 @@ public class CameraController : MonoBehaviour
     private Vector3 offset;
     public Transform mainCamera;
 
-    //look with mosue
+
     public float xRotation = 0f;
     public float yRotation = 0f;
-
     public float mouseSensitivity = 100f;
 
     void Start()
