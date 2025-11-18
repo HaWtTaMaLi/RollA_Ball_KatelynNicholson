@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player")]
     private int count;
-    public float speed = 5;
+    public float speed = 2;
     public float maxHealth = 100;
     [SerializeField] public HealthBar healthBar;
 
@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
     public float currentHealth;
+
+    [Header("Camera")]
+    public Transform cameraTransform;
 
     void Start()
     {
@@ -48,6 +51,16 @@ public class PlayerController : MonoBehaviour
         {
             PauseGame();
         }
+    }
+    private void FixedUpdate()
+    {
+        Vector3 input = new Vector3(movementX, 0.0f, movementY);
+
+        if (input.magnitude > 1f) input.Normalize();
+        Vector3 movement = cameraTransform.forward * input.z + cameraTransform.right * input.x;
+        movement.y = 0; //lock vertical
+
+        rb.AddForce(movement * speed);
     }
 
     void OnMove(InputValue movementValue)
@@ -77,13 +90,6 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 1;
             youWon = false;
         }
-    }
-
-    private void FixedUpdate()
-    {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-
-        rb.AddForce(movement * speed);
     }
 
     private void OnCollisionEnter(Collision collision)
