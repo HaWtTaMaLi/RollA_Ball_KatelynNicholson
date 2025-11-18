@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
+        currentHealth = 100;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1;
@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
         // Keep spinning
         transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
 
