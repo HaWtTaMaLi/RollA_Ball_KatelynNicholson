@@ -71956,6 +71956,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3772494332121093101, guid: 6322554f9bb6ef14984c397934e41fa0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772494332121093101, guid: 6322554f9bb6ef14984c397934e41fa0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772494332121093101, guid: 6322554f9bb6ef14984c397934e41fa0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772494332121093101, guid: 6322554f9bb6ef14984c397934e41fa0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772494332121093101, guid: 6322554f9bb6ef14984c397934e41fa0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0007885022
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772494332121093101, guid: 6322554f9bb6ef14984c397934e41fa0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 360
+      objectReference: {fileID: 0}
     - target: {fileID: 6653898725365734623, guid: 6322554f9bb6ef14984c397934e41fa0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
