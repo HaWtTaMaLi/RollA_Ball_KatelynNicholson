@@ -14,8 +14,6 @@ public class CameraController : MonoBehaviour
 
     //look with mosue
     public float xRotation = 0f;
-    public float yRotation = 0f;
-
     public float mouseSensitivity = 100f;
 
     void Start()
@@ -33,19 +31,16 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        /*//NO ERRORS BUT DOESNT MOVE 
+        //NO ERRORS BUT DOESNT MOVE 
         //look with mouse
         float mouseX = Input.GetAxis("mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("mouse Y") * mouseSensitivity * Time.deltaTime;
-
-        yRotation += mouseX;
         xRotation -= mouseY;
-
         xRotation = Mathf.Clamp(xRotation, -90, 30);
         orientation.Rotate(Vector3.up * mouseX);
 
 
         //text look at camera
-        this.transform.LookAt(mainCamera); //look at the camera */
+        this.transform.LookAt(mainCamera); //look at the camera
     }
 }
