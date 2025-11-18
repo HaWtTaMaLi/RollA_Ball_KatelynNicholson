@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-
 public class PlayerController : MonoBehaviour
 {
 
@@ -24,11 +23,9 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
     public float currentHealth;
-    
 
     void Start()
     {
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1;
@@ -80,12 +77,10 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 1;
             youWon = false;
         }
-
     }
 
     private void FixedUpdate()
     {
-        
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
         rb.AddForce(movement * speed);
@@ -167,13 +162,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1f;
-            if (youWon)
-            {
-                winTextObject.SetActive(true);
-            }
+            PauseEscape();
         }
-
     }
 
     public void PauseEscape()
@@ -183,6 +173,11 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (youWon)
+        {
+            winTextObject.SetActive(true);
+        }
     }
 
     public void Restart()
@@ -192,5 +187,4 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
 }

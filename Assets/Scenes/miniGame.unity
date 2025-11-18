@@ -74831,8 +74831,6 @@ MonoBehaviour:
   playerBody: {fileID: 6959806863193680803}
   orientation: {fileID: 8383700804431396134}
   mainCamera: {fileID: 646534061691504084}
-  xRotation: 0
-  mouseSensitivity: 100
 --- !u!114 &8448479934199053133
 MonoBehaviour:
   m_ObjectHideFlags: 0
