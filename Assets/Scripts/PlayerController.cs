@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player")]
     private int count;
+    public int targetScore = 8;
     public float speed = 5;
     public float maxHealth = 100;
     [SerializeField] public HealthBar healthBar;
@@ -62,9 +63,15 @@ public class PlayerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
+    void SetTargetScore(int newTarget)
+    {
+        targetScore = newTarget;
+        SetCountText();
+    }
+
     void SetCountText()
     {
-        countText.text = "Score: " + count.ToString() + "/8";
+        countText.text = "Score: " + count.ToString() + "/" + targetScore.ToString();
 
         if(count >= 8)
         {
@@ -72,19 +79,20 @@ public class PlayerController : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
             nextLevelObject.SetActive(true);
             winTextObject.SetActive(true);
+            youWon = true;
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Time.timeScale = 1;
+            youWon = false;
         }
-
     }
+
 
     private void FixedUpdate()
     {
-        
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
         rb.AddForce(movement * speed);
@@ -145,15 +153,30 @@ public class PlayerController : MonoBehaviour
     }
 
     public GameObject PauseMenu;
+    public bool youWon = false;
 
     public void PauseGame()
     {
-        //Debug.Log("Escape Key Pressed");
-        PauseMenu.SetActive(true);
-        Time.timeScale = 0;
+        bool isPaused = !PauseMenu.activeSelf;
+        PauseMenu.SetActive(isPaused);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        if (isPaused)
+        {
+            Time.timeScale = 0f;
+            winTextObject.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            if (youWon)
+            {
+                winTextObject.SetActive(true);
+            }
+        }
+
     }
 
     public void PauseEscape()
