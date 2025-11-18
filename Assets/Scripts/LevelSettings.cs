@@ -2,16 +2,22 @@ using UnityEngine;
 
 public class LevelSettings : MonoBehaviour
 {
-    //make it so each level increases the ammount of Collectables x2
-    //scene 1 = 8 count , scene 2 = 16
+    public int targetScore = 8;
+    public GameObject nextScene;
+    public GameObject nextLevelObject;
+    public GameObject winTextObject;
+
+    private PlayerController countManager;
+
     void Start()
     {
-        
-    }
-
-
-    void Update()
-    {
-        
+        countManager = FindAnyObjectByType<PlayerController>();
+        if (countManager != null)
+        {
+            countManager.nextScene = nextScene;
+            countManager.nextLevelObject = nextLevelObject;
+            countManager.winTextObject = winTextObject;
+            //countManager.SetTargetScore(targetScore); //go to player controller and add target score stuff
+        }
     }
 }
