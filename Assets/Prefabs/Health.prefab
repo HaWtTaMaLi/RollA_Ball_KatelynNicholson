@@ -2281,7 +2281,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1693
+  m_VersionIndex: 1708
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7205,7 +7205,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1261376187400646146}
-  - component: {fileID: 3125493516332907582}
   - component: {fileID: 8605047444919186549}
   m_Layer: 0
   m_Name: Health
@@ -7232,28 +7231,6 @@ Transform:
   - {fileID: 4398917783812234203}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 33.968, z: 0}
---- !u!95 &3125493516332907582
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7456507718559417795}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 04fef488fc1196948836f54f15969220, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!65 &8605047444919186549
 BoxCollider:
   m_ObjectHideFlags: 0
