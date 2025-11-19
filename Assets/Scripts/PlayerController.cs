@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player UI")]
     public TextMeshProUGUI countText;
+    public int targetScore;
     public GameObject winTextObject;
     public GameObject nextLevelObject;
     public GameObject gameOver;
@@ -86,12 +87,18 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Score: " + count.ToString() + "/8";
+        countText.text = "Score: " + count.ToString() + "/" + targetScore;
 
-        if(count >= 8)
+        if(count >= targetScore)
         {
             nextScene.SetActive(true);
-            Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies)
+            {
+                Destroy(enemy); //makes sure allllll enemies are destroyed if you won
+            }
+
             nextLevelObject.SetActive(true);
             winTextObject.SetActive(true);
             youWon = true;

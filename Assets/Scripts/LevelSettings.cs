@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSettings : MonoBehaviour
 {
@@ -12,12 +13,18 @@ public class LevelSettings : MonoBehaviour
     void Start()
     {
         countManager = FindAnyObjectByType<PlayerController>();
+
         if (countManager != null)
         {
             countManager.nextScene = nextScene;
             countManager.nextLevelObject = nextLevelObject;
             countManager.winTextObject = winTextObject;
-            //countManager.SetTargetScore(targetScore); //go to player controller and add target score stuff
+
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex - 1; // -1 = excluding main menu
+            if (sceneIndex >= 0)
+            {
+                countManager.targetScore = targetScore * (int)Mathf.Pow(2, sceneIndex); //pow calculates numbers raised to a power
+            }
         }
     }
 }
