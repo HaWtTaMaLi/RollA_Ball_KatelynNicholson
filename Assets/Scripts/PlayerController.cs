@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Score: " + count.ToString() + "/" + targetScore;
+        countText.text = "     : " + count.ToString() + "/" + targetScore;
 
         if(count >= targetScore)
         {
