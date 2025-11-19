@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private int count;
     public float speed = 2;
     public float maxHealth = 100;
+    public AudioSource lowHealth;
     [SerializeField] public HealthBar healthBar;
 
     [Header("Player UI")]
@@ -51,6 +52,18 @@ public class PlayerController : MonoBehaviour
         {
             PauseGame();
         }
+
+        if (currentHealth <= maxHealth * 0.3f)
+        {
+            if (!lowHealth.isPlaying)
+                lowHealth.Play();
+        }
+        else
+        {
+            if (lowHealth.isPlaying)
+                lowHealth.Stop();
+        }
+
     }
     private void FixedUpdate()
     {
@@ -102,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
             Rigidbody rb = GetComponent<Rigidbody>();
             Vector3 pushDirection = transform.position - collision.transform.position;
-            rb.AddForce(pushDirection.normalized * 200f);
+            rb.AddForce(pushDirection.normalized * 300f);
 
             if (currentHealth <= 0)
             {
@@ -131,6 +144,14 @@ public class PlayerController : MonoBehaviour
             SetCountText();
         }
 
+        if (other.gameObject.CompareTag("Heal"))
+        {
+            currentHealth += 20;
+            healthBar.UpdateHealthBar(maxHealth, currentHealth);
+            SoundManager.PlaySound(SoundType.HEAL);
+            other.gameObject.SetActive(false);
+        }
+
         //next level trigger
         if (other.CompareTag("NextTrigger"))
         {
@@ -153,10 +174,6 @@ public class PlayerController : MonoBehaviour
     {
         bool isPaused = !PauseMenu.activeSelf;
         PauseMenu.SetActive(isPaused);
-
-        //Debug.Log("Escape Key Pressed");
-        //PauseMenu.SetActive(true);
-        //Time.timeScale = 0;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

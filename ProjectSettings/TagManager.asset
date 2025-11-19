@@ -9,6 +9,7 @@ TagManager:
   - HUD
   - NextTrigger
   - Catcher
+  - Heal
   layers:
   - Default
   - TransparentFX

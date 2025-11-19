@@ -12,6 +12,8 @@ public enum SoundType
     COLLECTED,
     CLICK,
     HOVER,
+    LOWHEALTH,
+    HEAL,
 
 }
 
