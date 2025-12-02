@@ -6520,8 +6520,8 @@ GameObject:
   - component: {fileID: 3435677715648496541}
   - component: {fileID: 6776948193191335222}
   - component: {fileID: 1503610211573474344}
-  - component: {fileID: 7474170774078219228}
   - component: {fileID: 6954645127178910009}
+  - component: {fileID: 7474170774078219228}
   - component: {fileID: 8304964109573730924}
   - component: {fileID: 1541163384306854855}
   m_Layer: 0
@@ -6620,32 +6620,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7474170774078219228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7192324041524777332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7373800ed98054dab0c8a76aae4d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  maxHealth: 100
-  lowHealth: {fileID: 1541163384306854855}
-  healthBar: {fileID: 11914045756356067}
-  countText: {fileID: 6129232257094334792}
-  targetScore: 8
-  winTextObject: {fileID: 2820410923569329593}
-  nextLevelObject: {fileID: 0}
-  gameOver: {fileID: 4156811266735022178}
-  nextScene: {fileID: 0}
-  currentHealth: 0
-  cameraTransform: {fileID: 2277708434381429041}
-  PauseMenu: {fileID: 5678092139861509904}
-  youWon: 0
 --- !u!54 &6954645127178910009
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6673,6 +6647,32 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &7474170774078219228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192324041524777332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7373800ed98054dab0c8a76aae4d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxHealth: 100
+  lowHealth: {fileID: 1541163384306854855}
+  healthBar: {fileID: 11914045756356067}
+  countText: {fileID: 6129232257094334792}
+  targetScore: 8
+  winTextObject: {fileID: 2820410923569329593}
+  nextLevelObject: {fileID: 0}
+  gameOver: {fileID: 4156811266735022178}
+  nextScene: {fileID: 0}
+  currentHealth: 0
+  cameraTransform: {fileID: 2277708434381429041}
+  PauseMenu: {fileID: 5678092139861509904}
+  youWon: 0
 --- !u!114 &8304964109573730924
 MonoBehaviour:
   m_ObjectHideFlags: 0

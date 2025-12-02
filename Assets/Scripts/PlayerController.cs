@@ -64,8 +64,8 @@ public class PlayerController : MonoBehaviour
             if (lowHealth.isPlaying)
                 lowHealth.Stop();
         }
-
     }
+
     private void FixedUpdate()
     {
         Vector3 input = new Vector3(movementX, 0.0f, movementY);

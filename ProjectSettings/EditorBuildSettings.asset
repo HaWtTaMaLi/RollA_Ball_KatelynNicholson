@@ -14,8 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/miniGame2.unity
     guid: f43afb57c92755f488ac0fe4da623088
+  - enabled: 1
+    path: Assets/Scenes/BossBattle.unity
+    guid: fd79474ea8fc43947af4d828c0016860
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: adaab2f64e40d894da14699205c7c22e, type: 2}
-    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: eceb5a7e536832b4cac3734e31f40217, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: e9a0f136516615f43bd77268f93a6825, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
